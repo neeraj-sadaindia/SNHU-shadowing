@@ -1,0 +1,19 @@
+<form [formGroup]="editprofile" (ngSubmit)="onSubmit()">
+    <div class="row1">
+        <label for="email">email</label>
+        <input type="text" formControlName="email">
+        <div *ngIf="(form['email'].dirty || form['email'].touched) && form['email'].errors" class="invalid-feedback">
+            <div *ngIf="form['email'].errors['required']">Email is required</div>
+            <div *ngIf="form['email'].errors['email']">Enter a valid email id</div>
+        </div>
+    </div>
+    <div class="row2">
+        <label for="photo">Photo</label>
+        <input type="file" formControlName="photo" (change)="onFileChange($event)" id="photobox">
+        <div *ngIf="(form['photo'].dirty || form['photo'].touched) && form['photo'].errors" class="invalid-feedback">
+            <div *ngIf="form['photo'].errors['required']">Photo is required</div>
+        </div>
+    </div>
+    <button>SUBMIT</button>
+    <div *ngIf="flag">Submitted</div>
+</form>

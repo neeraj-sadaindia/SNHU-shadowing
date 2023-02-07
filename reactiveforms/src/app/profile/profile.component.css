@@ -1,0 +1,15 @@
+.row1,.row2,.row3,.row4,.row5{
+    display: grid;
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+}
+.row5{
+    width: 10%;
+}
+img{
+    margin: auto;
+    display: block;
+    width: auto;
+    height: 400px;
+}

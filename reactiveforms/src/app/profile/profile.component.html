@@ -1,0 +1,18 @@
+<app-menu></app-menu>
+<div class="main">
+    <div class="row1">
+        <p>Username : {{username}}</p><br>
+    </div>
+    <div class="row2">
+        <p>Mobile Number : {{mobile}}</p>
+    </div>
+    <div class="row3">
+        <div *ngIf="checkemail()">Email : {{email}}</div>
+    </div>
+    <div *ngIf="checkphoto()" class="row4">Photo : 
+        <img [src]="photo" alt="no-image">
+    </div>
+    <div class="row5">
+        <button (click)="onClick()">ADD</button>
+    </div>
+</div>

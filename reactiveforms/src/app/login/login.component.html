@@ -1,0 +1,33 @@
+<div class="form">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="row-1">
+            <label>First Name : </label>
+            <input type="text" formControlName="firstName" class="form-control"/>
+            <div *ngIf="(form['firstName'].dirty || form['firstName'].touched) && form['firstName'].errors" class="invalid-feedback">
+                <div *ngIf="form['firstName'].errors['required']" id="block1">First Name is required </div>
+                <div *ngIf="form['firstName'].errors['minlength']" id="block2">The minimum number of characters is 4</div>
+                <div *ngIf="form['firstName'].errors['maxlength']" id="block3">The maximum number of characters is 10</div>
+                <div *ngIf="form['firstName'].dirty && form['firstName'].errors['customValidator']" id="block4">Username should start with an alphabet</div>
+            </div>
+        </div>
+        <div class="row-2">
+            <label>Mobile Number : </label>
+            <input type="text" formControlName="mobile" class="form-control"/>
+            <div *ngIf="(form['mobile'].dirty || form['mobile'].touched) && form['mobile'].errors" class="invalid-feedback">
+                <div *ngIf="form['mobile'].errors['required']">Mobile number is required</div>
+                <div *ngIf="form['mobile'].errors['pattern']">Please enter a 10 digit number</div>
+                <div *ngIf="form['mobile'].errors['minlength']">Mobile Number does not have 10 digits</div>
+                <div *ngIf="form['mobile'].errors['maxlength']">Mobile Number exceeds 10 digits</div>
+            </div>
+        </div>
+        <div class="row-3">
+            <label>Password : </label>
+            <input type="password" formControlName="password" class="form-control"/>
+            <div *ngIf="(form['password'].dirty || form['password'].touched) && form['password'].errors" class="invalid-feedback">
+                <div *ngIf="form['password'].errors['required']">Password is required</div>
+            </div>
+        </div>
+        <button class="btn">Login</button>
+        <div *ngIf="flag" class="invalid-feedback">Invalid Password</div>
+    </form>
+</div>
