@@ -1,0 +1,45 @@
+form {
+    display: grid;
+    /*padding: 1em;*/
+    background: #f9f9f9;
+    border: 1px solid #c1c1c1;
+    margin: 2rem auto 0 auto;
+    max-width: 800px;
+    padding: 1em;
+  }
+  form input {
+    background: #fff;
+    border: 1px solid #9c9c9c;
+    display: block;
+  }
+  form button {
+    background: lightgrey;
+    padding: 0.7em;
+    width: 10%;
+    border: 0;
+  }
+  form button:hover {
+    background:grey;
+  }
+  
+  label {
+    padding: 0.5em 0.5em 0.5em 0;
+  }
+  input {
+    padding: 0.7em;
+    margin-bottom: 0.5rem;
+  }
+  #photobox{
+    border: none;
+    background: #f9f9f9;
+  }
+  input:focus {
+    outline: 1px solid grey;
+  }
+  .invalid-feedback{
+    color: red;
+  }
+  .red{
+    border: red;
+    color: red;
+  }
