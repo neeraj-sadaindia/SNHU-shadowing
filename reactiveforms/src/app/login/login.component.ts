@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit{
     pass=this.registerForm.controls['password'].value
     mobilenumber=this.registerForm.controls['mobile'].value
     if(this._auth.login(user,pass,mobilenumber)){
-      this.router.navigate(['home'])
+      this.router.navigate(['/dashboard/home'])
     }
       return false
   }

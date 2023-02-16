@@ -1,0 +1,48 @@
+<form [formGroup] = "editprofile" (ngSubmit)="onSubmit()">
+    <div class="row1">
+        <label for="email">email</label>
+        <input type="text" formControlName="email">
+        <div *ngIf="(form['email'].dirty || form['email'].touched) && form['email'].errors" class="invalid-feedback">
+            <div *ngIf="form['email'].errors['required']">Email is required</div>
+            <div *ngIf="form['email'].errors['email']">Enter a valid email id</div>
+        </div>
+    </div>
+    <div class="row2">
+        <label for="photo">Photo</label>
+        <input type="file" formControlName="photo" (change)="onFileChange($event)" id="photobox">
+        <div *ngIf="(form['photo'].dirty || form['photo'].touched) && form['photo'].errors" class="invalid-feedback">
+            <div *ngIf="form['photo'].errors['required']">Photo is required</div>
+        </div>
+    </div>
+    <table border="1">
+        <thead>
+            <th>Interest</th>
+            <th>Level</th>
+        </thead>
+        <tbody formArrayName="interests">
+            <tr *ngFor="let interest of interests.controls; let i = index;" [formGroupName]=i class="formarray">
+                <td style="width: 50px;">
+                    <input type="text" formControlName="title" id="interest" placeholder="Interest Name">
+                </td>
+                <td>
+                    <input type="text" formControlName="level" id="level" placeholder="Proficiency">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- <div formArrayName="interests">
+        <div class="row3">
+            <div *ngFor="let interest of interests.controls; let i = index">
+                <div [formGroupName]="i" class="formarray">
+                    <label for="interest">Interest</label>
+                    <label for="level">Level</label><br>
+                    <input type="text" formControlName="title" id="interest" placeholder="Interest Name">
+                    <input type="text" formControlName="level" id="level" placeholder="Proficiency">
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <button (click)="addinterest()" style="margin:1em">ADD Interest</button><br>
+    <button type="submit">SUBMIT</button>
+    <div *ngIf="flag">Submitted</div>
+</form>

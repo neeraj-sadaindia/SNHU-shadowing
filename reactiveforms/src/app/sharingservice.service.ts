@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { EmailValidator } from '@angular/forms';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject,of} from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({

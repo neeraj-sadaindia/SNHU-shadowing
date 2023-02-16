@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SharingserviceService } from '../sharingservice.service';
+import { SharingserviceService } from '../../sharingservice.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',

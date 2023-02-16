@@ -43,3 +43,11 @@ form {
     border: red;
     color: red;
   }
+  #interest,#level{
+    display: inline;
+  }
+  table
+  {
+    width: fit-content;
+  }
+

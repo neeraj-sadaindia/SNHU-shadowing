@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SharingserviceService } from '../sharingservice.service';
+import { SharingserviceService } from '../../sharingservice.service';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-profile',
@@ -38,13 +38,13 @@ export class ProfileComponent implements OnInit{
   }
   checkphoto():boolean{
     if(this.photo!=''){
-      console.log(this.photo)
+      //console.log(this.photo)
       this.photodisplay=true
     }
     return this.photodisplay
   }
   onClick(){
-    this.router.navigate(['editprofile'])
+    this.router.navigate(['/dashboard/editprofile'])
   }
 
 }
