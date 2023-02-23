@@ -7,6 +7,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
 import { MenuComponent } from './menu/menu.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ResetComponent } from './reset/reset.component';
+import { }
 
 @NgModule({
   declarations: [
@@ -14,7 +16,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     ProfileComponent,
     EditprofileComponent,
-    MenuComponent
+    MenuComponent,
+    ResetComponent
   ],
   imports: [
     CommonModule,

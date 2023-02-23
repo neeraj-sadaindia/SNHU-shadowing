@@ -22,10 +22,16 @@
         <tbody formArrayName="interests">
             <tr *ngFor="let interest of interests.controls; let i = index;" [formGroupName]=i class="formarray">
                 <td style="width: 50px;">
-                    <input type="text" formControlName="title" id="interest" placeholder="Interest Name">
+                    <input type="text" formControlName="title" [id]= "'interest'+i" placeholder="Interest Name">
+                    <div *ngIf="(allinterests.at(0).errors)">hi
+                        <div *ngIf="allinterests.errors">Enter value for interest</div>
+                    </div>
                 </td>
                 <td>
                     <input type="text" formControlName="level" id="level" placeholder="Proficiency">
+                    <!-- <div *ngIf="(level.errors && (interest.dirty && interest.touched))">
+                        <div *ngIf="level.errors['required']">Enter value for interest</div>
+                    </div> -->
                 </td>
             </tr>
         </tbody>
@@ -42,7 +48,7 @@
             </div>
         </div>
     </div> -->
-    <button (click)="addinterest()" style="margin:1em">ADD Interest</button><br>
+    <button (click)="addinterest()" style="margin:1em" [disabled]="(interests.controls.at(-1)?.invalid)">ADD Interest</button><br>
     <button type="submit">SUBMIT</button>
     <div *ngIf="flag">Submitted</div>
 </form>

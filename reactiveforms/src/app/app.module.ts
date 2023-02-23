@@ -7,6 +7,9 @@ import { LoginComponent } from './login/login.component';
 import { SharingserviceService } from './sharingservice.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthenticationService } from './services/authentication.service';
+import { PipesComponent } from './pipes/pipes.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog'
 
 
 @NgModule({
@@ -14,11 +17,14 @@ import { AuthenticationService } from './services/authentication.service';
     AppComponent,
     LoginComponent,
     PageNotFoundComponent,
+    PipesComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [SharingserviceService,AuthenticationService],
   bootstrap: [AppComponent]

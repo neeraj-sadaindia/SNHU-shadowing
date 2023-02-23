@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormGroup,FormControl,FormBuilder,FormArray,Validators, AbstractControl,ValidationErrors} from '@angular/forms';
+import { FormGroup,FormControl,FormBuilder,FormArray,Validators, AbstractControl,ValidationErrors, EmailValidator} from '@angular/forms';
 import { SharingserviceService } from '../../sharingservice.service'
 import { ViewChild, AfterViewInit } from '@angular/core';
 
@@ -31,10 +31,12 @@ export class EditprofileComponent implements OnInit {
     });
     this.interests.push(int)
   }
+  get allinterests(){
+    return <FormArray>this.editprofile.get('interests')
+  }
   get form(): { [key: string]: AbstractControl; }{
     return this.editprofile.controls;
     }
-
   onFileChange(event: any) {
     const file = event.target.files[0];
     const reader = new FileReader();
@@ -51,13 +53,22 @@ export class EditprofileComponent implements OnInit {
     localStorage.setItem("email",this.editprofile.controls['email'].value)
     this.router.navigate(['/dashboard/profile'])
   }
-
+  checkformarray(){
+    if(this.allinterests.controls.length==0){
+      return true
+    }
+    else{
+      return true ? this.allinterests.at(0).valueChanges.subscribe(x => console.log(x)) : false
+    }
+  }
   onSubmit(){
     if ((this.editprofile.invalid)) {
       return;
     }
     //console.log(this.flag)
-    console.log((this.interests.value[0]))
+    console.log(this.allinterests.errors)
+    console.log(this.allinterests.controls.length)
+    console.log(this.form['interests'].errors)
     this.flag=true
     //console.log(this.flag)
     this.sendeditprofiledata()

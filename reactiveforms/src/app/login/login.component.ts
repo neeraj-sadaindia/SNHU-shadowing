@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit{
   username!: string;
   constructor(private router: Router,private formBuilder: FormBuilder,private sharing: SharingserviceService,private _auth: AuthenticationService){
     if(this._auth.loggedIn){
-      this.router.navigate(['home'])
+      this.router.navigate(['/dashboard/home'])
     }
   }
   registerForm!: FormGroup;

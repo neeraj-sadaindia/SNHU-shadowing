@@ -32,3 +32,21 @@ export function passwordValidator(sharing:SharingserviceService): ValidatorFn {
         //return !flag ? {passwordValidator:true}:null
     }
 }
+export function confirmpasswordvalidator(pass:string,confirmpass:string){
+    return (formgroup:FormGroup) => {
+        const password = formgroup.controls[pass]
+        const confirmpassword = formgroup.controls[confirmpass]
+        if (password.errors && !confirmpassword.errors!['confirmpasswordvalidator']) {
+            return;
+        }
+        if(password.value !== confirmpassword.value){
+            console.log(password.value)
+            console.log(confirmpassword.value)
+            confirmpassword.setErrors({confirmpasswordvalidator:true})
+        }
+        else{
+            confirmpassword.setErrors(null)
+        }
+        console.log(confirmpassword.errors)
+    }
+}

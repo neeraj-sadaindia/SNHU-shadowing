@@ -1,0 +1,23 @@
+<form [formGroup]="resetpassword" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="newpass">New Password : </label>
+        <input type="password" formControlName="newpass">
+        <div *ngIf="(form['newpass'].dirty || form['newpass'].touched) && form['newpass'].errors" class="invalid-feedback">
+            <div *ngIf="form['newpass'].errors!['required']">Enter password</div>
+            <div *ngIf="form['newpass'].errors!['minlength']">Minimum Password length should be 8 characters</div>
+            <div *ngIf="form['newpass'].errors!['maxlength']">Maximum Length should be 8 characters</div>
+        </div>
+    </div>
+    <div>
+        <label for="confirmnewpass">Confirm Password : </label>
+        <input type="password" formControlName="confirmnewpass">
+        <div *ngIf="(form['confirmnewpass'].dirty || form['confirmnewpass'].touched) && form['confirmnewpass'].errors" class="invalid-feedback">
+            <div *ngIf="form['confirmnewpass'].errors!['required']">Enter password</div>
+            <div *ngIf="form['confirmnewpass'].errors!['minlength']">Minimum Password length should be 8 characters</div>
+            <div *ngIf="form['confirmnewpass'].errors!['maxlength']">Maximum Length should be 8 characters</div>
+            <div *ngIf="form['confirmnewpass'].errors!['confirmpasswordvalidator']">Both Passwords should match</div>
+        </div>
+    </div>
+    <button type="submit">SUBMIT</button>
+    <div *ngIf="flag">Submitted</div>
+</form>
